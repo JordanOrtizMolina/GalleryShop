@@ -47,11 +47,38 @@ export default function Home() {
 
   return (
     <CartProvider>
-      <div className="min-h-screen p-4 bg-gray-100">
-        <SearchBar onSearch={fetchImages} />
-        {loading ? <p className="mt-4">Cargando...</p> : <ImageGrid images={images} />}
-        <CartSidebar />
+      <div className="min-h-screen bg-gradient-to-br bg-blue-100 text-gray-800">
+        <header className="py-0 px-0 bg-gradient-to-br bg-blue-100 border-b border-gray-200 shadow sticky top-0 z-50">
+          <div className="max-w-6xl mx-8 flex items-center gap-30">
+            <h1 className="text-3xl text-black whitespace-nowrap">🛍️ Gallery Shop    </h1>
+            <div className="flex-1 max-w-xl">
+              <SearchBar onSearch={fetchImages} />
+            </div>
+          </div>
+        </header>
+        <div className="flex flex-col md:flex-row">
+          <main className="flex-1 p-6 max-w-6xl mx-auto">
+            {loading ? (
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-6">
+                {Array(6)
+                  .fill(null)
+                  .map((_, idx) => (
+                    <div
+                      key={idx}
+                      className="h-72 bg-blue-100 animate-pulse rounded-xl shadow-inner"
+                    />
+                  ))}
+              </div>
+            ) : (
+              <ImageGrid images={images} />
+            )}
+          </main>
+  
+          <aside className="w-full md:w-[350px] border-l border-gray-200 bg-blue-100 shadow-inner p-6 sticky top-0 h-screen overflow-y-auto">
+            <CartSidebar />
+          </aside>
+        </div>
       </div>
     </CartProvider>
   );
-}
+}  
