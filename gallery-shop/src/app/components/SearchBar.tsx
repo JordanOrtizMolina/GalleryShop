@@ -1,6 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { useDebounce } from '../hooks/useDebounceSearch';
+import { useDebounceSearch } from '../hooks/useDebounceSearch';
 import { Search } from 'lucide-react';
 
 type Props = {
@@ -9,7 +9,7 @@ type Props = {
 
 export function SearchBar({ onSearch }: Props) {
   const [input, setInput] = useState('');
-  const debounced = useDebounce(input, 500);
+  const debounced = useDebounceSearch(input, 500);
 
   useEffect(() => {
     if (debounced.trim()) {
