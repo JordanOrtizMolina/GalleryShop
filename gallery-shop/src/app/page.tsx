@@ -33,7 +33,7 @@ export default function Home() {
       const formattedImages = data.results.map((img: any) => ({
         id: img.id,
         url: img.urls.regular,
-        title: img.alt_description || 'Sin título',
+        title: img.alt_description || 'No title available',
         price: Number((Math.random() * 20 + 5).toFixed(2)),
       }));
 

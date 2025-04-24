@@ -6,10 +6,10 @@ export const CartSidebar = () => {
 
   return (
     <div>
-      <h2 className="text-xl font-bold text-black mb-4">🛒 Tu carrito</h2>
+      <h2 className="text-xl font-bold text-black mb-4">🛒 Your cart</h2>
 
       {cart.length === 0 ? (
-        <p className="text-gray-500">Tu carrito está vacío.</p>
+        <p className="text-gray-500">Your cart is empty.</p>
       ) : (
         <div className="space-y-4">
           {cart.map((item) => (
@@ -33,12 +33,12 @@ export const CartSidebar = () => {
           <hr className="border-gray-300" />
 
           <div className="text-lg font-semibold flex justify-between">
-            <span>Total:</span>
+            <span> Total price:</span>
             <span className="text-green-600">${total.toFixed(2)}</span>
           </div>
 
           <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg shadow-md transition text-center">
-            Proceder al pago
+            Proceed to Checkout
           </button>
         </div>
       )}
